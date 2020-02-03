@@ -54,7 +54,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/newtroshop" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -126,7 +126,7 @@
       <updated>1580712079640</updated>
       <workItem from="1580712086430" duration="5343000" />
       <workItem from="1580717509915" duration="4347000" />
-      <workItem from="1580729208944" duration="760000" />
+      <workItem from="1580727725715" duration="700000" />
     </task>
     <servers />
   </component>
@@ -158,6 +158,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="416" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1580720418418" />
+    <state x="581" y="185" key="FileChooserDialogImpl" timestamp="1580729200582">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="581" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1580729200582" />
     <state x="670" y="318" width="263" height="222" key="Github.ShareDialog" timestamp="1580720541945">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
