@@ -10,5 +10,9 @@
         <module name="newtroshop.main" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="newtroshop.main" target="1.8" />
+      <module name="newtroshop.test" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
