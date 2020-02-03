@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="be74186b-3fbf-47c0-9fa6-042eb6faaf11" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1XHnqdQKSoS7acTuMvocFxYHxPK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.kostars.newtroshop.service" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\newtroshop\src\main\java\com\kostars\newtroshop\domain\user" />
+      <recent name="D:\newtroshop\src\main\java\com\kostars\newtroshop\domain" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.NewtroshopApplication">
+    <configuration name="newtroshop [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="NewtroshopApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="newtroshop.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.kostars.newtroshop.NewtroshopApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.newtroshop [clean]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="be74186b-3fbf-47c0-9fa6-042eb6faaf11" name="Default Changelist" comment="" />
+      <created>1580712079640</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1580712079640</updated>
+      <workItem from="1580712086430" duration="5343000" />
+      <workItem from="1580717509915" duration="4347000" />
+      <workItem from="1580729208944" duration="760000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="389" y="16" key="#NewtroshopApplication" timestamp="1580718000422">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="389" y="16" key="#NewtroshopApplication/0.0.1600.860@0.0.1600.860" timestamp="1580718000422" />
+    <state x="393" y="88" key="#Project_Structure" timestamp="1580718063064">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="393" y="88" key="#Project_Structure/0.0.1600.860@0.0.1600.860" timestamp="1580718063064" />
+    <state x="532" y="213" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1580717809545">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="532" y="213" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1600.860@0.0.1600.860" timestamp="1580717809545" />
+    <state x="641" y="319" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1580727813398">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="641" y="319" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1600.860@0.0.1600.860" timestamp="1580727813398" />
+    <state x="590" y="268" width="466" height="326" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1580713704526">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="590" y="268" width="466" height="326" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1600.860@0.0.1600.860" timestamp="1580713704526" />
+    <state x="416" y="0" key="CommitChangelistDialog2" timestamp="1580720418418">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="416" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1580720418418" />
+    <state x="670" y="318" width="263" height="222" key="Github.ShareDialog" timestamp="1580720541945">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="670" y="318" width="263" height="222" key="Github.ShareDialog/0.0.1600.860@0.0.1600.860" timestamp="1580720541945" />
+    <state width="1552" height="199" key="GridCell.Tab.0.bottom" timestamp="1580727214531">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1552" height="199" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1580727214531" />
+    <state width="1552" height="199" key="GridCell.Tab.0.center" timestamp="1580727214531">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1552" height="199" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1580727214531" />
+    <state width="1552" height="199" key="GridCell.Tab.0.left" timestamp="1580727214531">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1552" height="199" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1580727214531" />
+    <state width="1552" height="199" key="GridCell.Tab.0.right" timestamp="1580727214531">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1552" height="199" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1580727214531" />
+    <state width="1552" height="199" key="GridCell.Tab.1.bottom" timestamp="1580717454977">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1552" height="199" key="GridCell.Tab.1.bottom/0.0.1600.860@0.0.1600.860" timestamp="1580717454977" />
+    <state width="1552" height="199" key="GridCell.Tab.1.center" timestamp="1580717454977">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1552" height="199" key="GridCell.Tab.1.center/0.0.1600.860@0.0.1600.860" timestamp="1580717454977" />
+    <state width="1552" height="199" key="GridCell.Tab.1.left" timestamp="1580717454977">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1552" height="199" key="GridCell.Tab.1.left/0.0.1600.860@0.0.1600.860" timestamp="1580717454977" />
+    <state width="1552" height="199" key="GridCell.Tab.1.right" timestamp="1580717454977">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1552" height="199" key="GridCell.Tab.1.right/0.0.1600.860@0.0.1600.860" timestamp="1580717454977" />
+    <state x="302" y="71" key="SettingsEditor" timestamp="1580712505159">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="302" y="71" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1580712505159" />
+    <state x="609" y="342" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1580715562798">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="609" y="342" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1600.860@0.0.1600.860" timestamp="1580715562798" />
+    <state x="471" y="189" width="672" height="678" key="search.everywhere.popup" timestamp="1580720532713">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="471" y="189" width="672" height="678" key="search.everywhere.popup/0.0.1600.860@0.0.1600.860" timestamp="1580720532713" />
+  </component>
+</project>
