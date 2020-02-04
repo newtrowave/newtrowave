@@ -2,7 +2,6 @@ package com.kostars.newtroshop.web;
 
 import com.kostars.newtroshop.domain.category.keyword.Keyword;
 import com.kostars.newtroshop.domain.category.keyword.KeywordRepository;
-import javafx.application.Application;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
