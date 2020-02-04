@@ -1,7 +1,13 @@
 package com.kostars.newtroshop.web;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
 public class IndexController {
-    private String title;
-    private String content;
-    private String pop;
+
+    @GetMapping("/")
+    public String index() {
+        return "index";
+    }
 }

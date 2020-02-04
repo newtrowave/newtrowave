@@ -16,7 +16,7 @@ build/
 
 ### IntelliJ IDEA ###
 .idea
-.properties
+application.properties
 *.iws
 *.iml
 *.ipr
@@ -31,3 +31,4 @@ out/
 
 ### VS Code ###
 .vscode/
+
