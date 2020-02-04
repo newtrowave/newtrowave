@@ -1,6 +1,21 @@
 package com.kostars.newtroshop.web;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/admin")
 public class AdminController {
-    private String title;
-    private String content;
+
+    @GetMapping("")
+    public String index() {
+        return "admin/index";
+    }
+
+    @GetMapping("/{path}")
+    public String eCommerce(@PathVariable String path) {
+        return "admin/" + path;
+    }
 }
