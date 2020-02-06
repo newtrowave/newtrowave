@@ -1,4 +1,4 @@
-package com.kostars.newtroshop.domain.category.keyword;
+package com.kostars.newtroshop.domain.product.category.keyword;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

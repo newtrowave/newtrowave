@@ -1,4 +1,4 @@
-package com.kostars.newtroshop.domain.category.keyword;
+package com.kostars.newtroshop.domain.product.category.keyword;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
