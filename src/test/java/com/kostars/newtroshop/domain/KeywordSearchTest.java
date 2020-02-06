@@ -1,11 +1,10 @@
 package com.kostars.newtroshop.domain;
 
 import com.kostars.newtroshop.NewtroshopApplicationTests;
-import com.kostars.newtroshop.domain.category.keyword.Keyword;
-import com.kostars.newtroshop.domain.category.keyword.KeywordRepository;
+import com.kostars.newtroshop.domain.product.category.keyword.Keyword;
+import com.kostars.newtroshop.domain.product.category.keyword.KeywordRepository;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
 import org.springframework.util.Assert;
 
 import java.util.List;

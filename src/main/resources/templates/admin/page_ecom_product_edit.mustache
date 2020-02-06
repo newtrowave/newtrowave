@@ -39,38 +39,38 @@
                                     <!-- END General Data Title -->
 
                                     <!-- General Data Content -->
-                                    <form action="page_ecom_product_edit.mustache" method="post" class="form-horizontal form-bordered" onsubmit="return false;">
+                                    <form action="/product" method="post" class="form-horizontal form-bordered">
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="product-id">PID</label>
+                                            <label class="col-md-3 control-label" for="productName">PID</label>
                                             <div class="col-md-9">
-                                                <input type="text" id="product-id" name="product-id" class="form-control" value="6825">
+                                                <input type="text" id="productId" name="productId" class="form-control" value="">
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="product-name">Name</label>
+                                            <label class="col-md-3 control-label" for="productName">Name</label>
                                             <div class="col-md-9">
-                                                <input type="text" id="product-name" name="product-name" class="form-control" placeholder="Enter product name..">
+                                                <input type="text" id="productName" name="productName" class="form-control" placeholder="Enter productEntity name..">
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="product-description">Description</label>
+                                            <label class="col-md-3 control-label" for="productContent">Description</label>
                                             <div class="col-md-9">
                                                 <!-- CKEditor, you just need to include the plugin (see at the bottom of this page) and add the class 'ckeditor' to your textarea -->
                                                 <!-- More info can be found at http://ckeditor.com -->
-                                                <textarea id="product-description" name="product-description" class="ckeditor"></textarea>
+                                                <textarea id="productContent" name="productContent" class="ckeditor"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="product-short-description">Short Description</label>
+                                            <label class="col-md-3 control-label" for="productEntity-short-description">Short Description</label>
                                             <div class="col-md-9">
-                                                <textarea id="product-short-description" name="product-short-description" class="form-control" rows="3"></textarea>
+                                                <textarea id="productEntity-short-description" name="productEntity-short-description" class="form-control" rows="3"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="product-category">Category</label>
+                                            <label class="col-md-3 control-label" for="productEntity-category">Category</label>
                                             <div class="col-md-8">
                                                 <!-- Chosen plugin (class is initialized in js/app.js -> uiInit()), for extra usage examples you can check out http://harvesthq.github.io/chosen/ -->
-                                                <select id="product-category" name="product-category" class="select-chosen" data-placeholder="Choose Category.." style="width: 250px;">
+                                                <select id="productEntity-category" name="productEntity-category" class="select-chosen" data-placeholder="Choose Category.." style="width: 250px;">
                                                     <option></option><!-- Required for data-placeholder attribute to work with Chosen plugin -->
                                                     <option value="1">Tablets</option>
                                                     <option value="2">Laptops</option>
@@ -85,22 +85,31 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="product-price">Price</label>
+                                            <label class="col-md-3 control-label" for="productPrice">Price</label>
                                             <div class="col-md-8">
                                                 <div class="input-group">
                                                     <div class="input-group-addon"><i class="fa fa-usd"></i></div>
-                                                    <input type="text" id="product-price" name="product-price" class="form-control" placeholder="0,00">
+                                                    <input type="text" id="productPrice" name="productPrice" class="form-control" placeholder="0,00">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="productStock">Stock</label>
+                                            <div class="col-md-8">
+                                                <div class="input-group">
+                                                    <div class="input-group-addon"><i class="fa fa-usd"></i></div>
+                                                    <input type="text" id="productStock" name="productStock" class="form-control" placeholder="0">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-3 control-label">Condition</label>
                                             <div class="col-md-9">
-                                                <label class="radio-inline" for="product-condition-new">
-                                                    <input type="radio" id="product-condition-new" name="product-condition" value="condition_new" checked> New
+                                                <label class="radio-inline" for="productEntity-condition-new">
+                                                    <input type="radio" id="productEntity-condition-new" name="productEntity-condition" value="condition_new" checked> New
                                                 </label>
-                                                <label class="radio-inline" for="product-condition-used">
-                                                    <input type="radio" id="product-condition-used" name="product-condition" value="condition_used"> Used
+                                                <label class="radio-inline" for="productEntity-condition-used">
+                                                    <input type="radio" id="productEntity-condition-used" name="productEntity-condition" value="condition_used"> Used
                                                 </label>
                                             </div>
                                         </div>
@@ -108,13 +117,13 @@
                                             <label class="col-md-3 control-label">Published?</label>
                                             <div class="col-md-9">
                                                 <label class="switch switch-primary">
-                                                    <input type="checkbox" id="product-status" name="product-status" checked><span></span>
+                                                    <input type="checkbox" id="productEntity-status" name="productEntity-status" checked><span></span>
                                                 </label>
                                             </div>
                                         </div>
                                         <div class="form-group form-actions">
                                             <div class="col-md-9 col-md-offset-3">
-                                                <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-floppy-o"></i> Save</button>
+                                                <button type="button" id="productSaveBtn" class="btn btn-sm btn-primary"><i class="fa fa-floppy-o"></i> Save</button>
                                                 <button type="reset" class="btn btn-sm btn-warning"><i class="fa fa-repeat"></i> Reset</button>
                                             </div>
                                         </div>
@@ -135,22 +144,22 @@
                                     <!-- Meta Data Content -->
                                     <form action="page_ecom_product_edit.mustache" method="post" class="form-horizontal form-bordered" onsubmit="return false;">
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="product-meta-title">Meta Title</label>
+                                            <label class="col-md-3 control-label" for="productEntity-meta-title">Meta Title</label>
                                             <div class="col-md-9">
-                                                <input type="text" id="product-meta-title" name="product-meta-title" class="form-control" placeholder="Enter meta title..">
+                                                <input type="text" id="productEntity-meta-title" name="productEntity-meta-title" class="form-control" placeholder="Enter meta title..">
                                                 <div class="help-block">55 Characters Max</div>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="product-meta-keywords">Meta Keywords</label>
+                                            <label class="col-md-3 control-label" for="productEntity-meta-keywords">Meta Keywords</label>
                                             <div class="col-md-9">
-                                                <input type="text" id="product-meta-keywords" name="product-meta-keywords" class="form-control" placeholder="keyword1, keyword2, keyword3">
+                                                <input type="text" id="productEntity-meta-keywords" name="productEntity-meta-keywords" class="form-control" placeholder="keyword1, keyword2, keyword3">
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="product-meta-description">Meta Description</label>
+                                            <label class="col-md-3 control-label" for="productEntity-meta-description">Meta Description</label>
                                             <div class="col-md-9">
-                                                <textarea id="product-meta-description" name="product-meta-description" class="form-control" rows="6" placeholder="Enter meta description.."></textarea>
+                                                <textarea id="productEntity-meta-description" name="productEntity-meta-description" class="form-control" rows="6" placeholder="Enter meta description.."></textarea>
                                                 <div class="help-block">115 Characters Max</div>
                                             </div>
                                         </div>
@@ -238,5 +247,5 @@
                         <!-- END Product Edit Content -->
                     </div>
                     <!-- END Page Content -->
-
+<script type="module" src="/admin/js/admin/product_edit.js"></script>
 {{>admin/layout/footer}}
