@@ -55,12 +55,14 @@
                     <div class="col-sm-6 col-xs-12">
                         <div class="top-link clearfix">
                             <ul class="link f-right">
+                                {{#userName}}
                                 <li>
                                     <a href="my-account.html">
                                         <i class="zmdi zmdi-account"></i>
-                                        My Account
+                                        <span id="user">{{userName}}님</span>
                                     </a>
                                 </li>
+                                {{/userName}}
                                 <li>
                                     <a href="wishlist.html">
                                         <i class="zmdi zmdi-favorite"></i>
@@ -68,10 +70,15 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="login.html">
+                                    {{^userName}}
+                                    <a href="/loginpage">
                                         <i class="zmdi zmdi-lock"></i>
                                         Login
                                     </a>
+                                    {{/userName}}
+                                    {{#userName}}
+                                        <li><a href="/logout" class="btn btn-info active" role="button">Logout</a></li>
+                                    {{/userName}}
                                 </li>
                             </ul>
                         </div>
@@ -384,7 +391,7 @@
                                                         <a href="order.html">Order</a>
                                                     </li>
                                                     <li>
-                                                        <a href="login.html">Login</a>
+                                                        <a href="/loginpage">Login</a>
                                                     </li>
                                                     <li>
                                                         <a href="My-account.html">My Account</a>
@@ -670,7 +677,7 @@
                                             <a href="order.html">Order</a>
                                         </li>
                                         <li>
-                                            <a href="login.html">Login</a>
+                                            <a href="/loginpage">Login</a>
                                         </li>
                                         <li>
                                             <a href="My-account.html">My Account</a>
