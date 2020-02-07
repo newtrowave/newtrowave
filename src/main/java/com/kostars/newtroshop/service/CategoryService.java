@@ -1,9 +1,11 @@
 package com.kostars.newtroshop.service;
 
+import com.kostars.newtroshop.domain.CrudInterface;
+import com.kostars.newtroshop.domain.Header;
 import com.kostars.newtroshop.domain.product.category.Category;
 import com.kostars.newtroshop.domain.product.category.CategoryRepository;
-import com.kostars.newtroshop.domain.product.category.keyword.Keyword;
-import com.kostars.newtroshop.domain.product.category.keyword.KeywordRepository;
+import com.kostars.newtroshop.web.dto.request.CategoryRequestDto;
+import com.kostars.newtroshop.web.dto.response.CategoryResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,45 +13,84 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CategoryService {
+public class CategoryService implements CrudInterface<CategoryRequestDto, CategoryResponseDto> {
 
     @Autowired
     private CategoryRepository categoryRepository;
 
-    @Autowired
-    private KeywordRepository keywordRepository;
+    @Override
+    public Header<CategoryResponseDto> create(Header<CategoryRequestDto> request) {
 
-    public Category createCategory(Category category) {
+        CategoryRequestDto body = request.getData();
 
-        return categoryRepository.save(category);
+        Category category = Category.builder()
+                .categoryName(body.getCategoryName())
+                .build();
+
+        category = categoryRepository.save(category);
+
+        return response(category);
     }
 
-    public List<Category> categoryList(String categoryName) {
+    @Override
+    public Header<CategoryResponseDto> read(Long id) {
 
-        return categoryRepository.findAllByCategoryNameContaining(categoryName);
+        return categoryRepository.findById(id)
+                .map(this::response)
+                .orElseGet(() -> Header.ERROR("No Data"));
     }
 
-    public Keyword createKeyword(Keyword keyword) {
+    public Header<CategoryResponseDto> readAll() {
 
-        return keywordRepository.save(keyword);
+        List<Category> categories = categoryRepository.findAll();
+
+        return categories.isEmpty() ? Header.ERROR("No List Data") : responseAll(categories);
     }
 
-    public List<Keyword> keywordList(String keywordName) {
+    public Header<CategoryResponseDto> readAll(String categoryName) {
 
-        return keywordRepository.findAllByKeywordNameContaining(keywordName);
+        List<Category> categories = categoryRepository.findAllByCategoryNameContaining(categoryName);
+
+        return categories.isEmpty() ? Header.ERROR("No List Data") : responseAll(categories);
     }
 
-    public Category categorySelect(Long categoryId) {
+    @Override
+    public Header<CategoryResponseDto> update(Header<CategoryRequestDto> request) {      // todo Category delete 구현
 
-        Optional<Category> category = categoryRepository.findById(categoryId);
+        CategoryRequestDto body = request.getData();
 
-        return category.isPresent() ? category.get() : null;
+        Category category = Category.builder()
+                .categoryId(body.getCategoryId())
+                .categoryName(body.getCategoryName())
+                .build();
+
+        Category newCategory = categoryRepository.save(category);
+
+        return response(newCategory);
     }
 
-    public Keyword keywordSelect(Long keywordId) {
-
-        Optional<Keyword> keyword = keywordRepository.findById(keywordId);
-
-        return keyword.isPresent() ? keyword.get() : null;
+    @Override
+    public Header delete(Long id) {
+        return null;
     }
+
+    private Header<CategoryResponseDto> response(Category category) {
+
+        CategoryResponseDto body = CategoryResponseDto.builder()
+                .categoryId(category.getCategoryId())
+                .categoryName(category.getCategoryName())
+                .build();
+
+        return Header.OK(body);
+    }
+
+    private Header<CategoryResponseDto> responseAll(List<Category> categories) {
+
+        CategoryResponseDto body = CategoryResponseDto.builder()
+                .categories(categories)
+                .build();
+
+        return Header.OK(body);
+    }
+
 }

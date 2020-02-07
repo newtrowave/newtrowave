@@ -1,57 +1,55 @@
 package com.kostars.newtroshop.web;
 
-import com.kostars.newtroshop.domain.product.category.Category;
-import com.kostars.newtroshop.domain.product.category.keyword.Keyword;
+import com.kostars.newtroshop.domain.CrudInterface;
+import com.kostars.newtroshop.domain.Header;
 import com.kostars.newtroshop.service.CategoryService;
+import com.kostars.newtroshop.web.dto.request.CategoryRequestDto;
+import com.kostars.newtroshop.web.dto.response.CategoryResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/api/category")
-public class CategoryController {
+public class CategoryController implements CrudInterface<CategoryRequestDto, CategoryResponseDto> {
 
     @Autowired
     private CategoryService categoryService;
 
+    @Override
     @PostMapping("")
-    public int createCategory(@RequestBody Category category) {
+    public Header<CategoryResponseDto> create(Header<CategoryRequestDto> request) {
 
-        category = categoryService.createCategory(category);
-
-        return category.getCategoryId() != null ? 1 : 0;
+        return categoryService.create(request);
     }
 
-    @PostMapping("/keyword")
-    public int createKeyword(@RequestBody Keyword keyword) {
+    @Override
+    @GetMapping("{categoryId}")
+    public Header<CategoryResponseDto> read(@PathVariable Long categoryId) {
 
-        keyword = categoryService.createKeyword(keyword);
-
-        return keyword.getKeywordId() != null ? 1 : 0;
+        return categoryService.read(categoryId);
     }
 
-    @GetMapping("{categoryName}")
-    public List<Category> categoryList(@PathVariable String categoryName) {
+    @GetMapping("")
+    public Header<CategoryResponseDto> readAll() {
 
-        return categoryService.categoryList(categoryName);
+        return categoryService.readAll();
     }
 
-    @GetMapping("/keyword/{keywordName}")
-    public List<Keyword> keywordList(@PathVariable String keywordName) {
+    @GetMapping("/list/{categoryName}")
+    public Header<CategoryResponseDto> readAll(@PathVariable String categoryName) {
 
-        return categoryService.keywordList(keywordName);
+        return categoryService.readAll(categoryName);
     }
 
-    @GetMapping("/id/{categoryId}")
-    public Category categorySelect(@PathVariable Long categoryId) {
-
-        return categoryService.categorySelect(categoryId);
+    @Override
+    @PutMapping("")
+    public Header<CategoryResponseDto> update(Header<CategoryRequestDto> request) {
+        return categoryService.update(request);
     }
 
-    @GetMapping("/keyword/id/{keywordId}")
-    public Keyword keywordSelect(@PathVariable Long keywordId) {
-
-        return categoryService.keywordSelect(keywordId);
+    @Override
+    public Header delete(Long id) {
+        return categoryService.delete(id);
     }
+
 }
