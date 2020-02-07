@@ -1,4 +1,4 @@
-package com.kostars.newtroshop.web.dto.request;
+package com.kostars.newtroshop.web.dto.response;
 
 import com.kostars.newtroshop.domain.product.Product;
 import com.kostars.newtroshop.domain.product.category.Category;
@@ -16,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ProductRequestDTO {
+public class ProductResponseDto {
 
     private Long productId;
 
@@ -34,7 +34,7 @@ public class ProductRequestDTO {
 
     private int productStock;
 
-    private Product product;
+    private List<Product> product;
 
     private List<Category> categories;
 

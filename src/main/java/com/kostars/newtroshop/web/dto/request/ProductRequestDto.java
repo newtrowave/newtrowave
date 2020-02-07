@@ -1,24 +1,33 @@
-package com.kostars.newtroshop.domain.product;
+package com.kostars.newtroshop.web.dto.request;
 
-import com.kostars.newtroshop.domain.product.category.Category;
-import com.kostars.newtroshop.domain.product.category.keyword.Keyword;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ProductDTO {
+public class ProductRequestDto {
 
-    private Product product;
+    private Long productId;
 
-    private List<Category> categories;
+    private String productName;
 
-    private List<Keyword> keywords;
+    private BigDecimal productPrice;
+
+    private String productContent;
+
+    private String productColor;
+
+    private LocalDateTime createdAt;
+
+    private LocalDateTime updatedAt;
+
+    private int productStock;
 
 }
