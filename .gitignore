@@ -17,7 +17,7 @@ build/
 ### IntelliJ IDEA ###
 .idea
 application.properties
-application-ouath.properties
+application-oauth.properties
 *.iws
 *.iml
 *.ipr
