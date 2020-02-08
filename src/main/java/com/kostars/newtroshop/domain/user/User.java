@@ -3,6 +3,7 @@ package com.kostars.newtroshop.domain.user;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Entity
 @EntityListeners(AuditingEntityListener.class)
+@Accessors(chain = true)
 public class User {
 
     @Id
@@ -43,11 +45,13 @@ public class User {
     private LocalDateTime updatedAt;
 
     @Builder
-    public User(String name, String email, String picture, Role role) {
+    public User(String name, String email, String picture, Role role, String phoneNumber, LocalDateTime registeredAt) {
         this.name = name;
         this.email = email;
         this.picture = picture;
         this.role = role;
+        this.phoneNumber = phoneNumber;
+        this.registeredAt = registeredAt;
     }
 
     public User update(String name, String picture) {
