@@ -4,6 +4,7 @@ let p = document.getElementById("productSaveBtn");
 
 p.addEventListener("click", function() {
     var form = new FormData(document.getElementById("form_product_keywords"));
+
     let CategoryRequestDto = {
         "transaction_time" : "",
         "result_code" : "",
@@ -17,7 +18,6 @@ p.addEventListener("click", function() {
     CategoryRequestDto.data.category_id = form.get("categoryId");
     CategoryRequestDto.data.category_name = form.get("categoryName");
 
-
     console.log(CategoryRequestDto);
 
     let jsonObj = JSON.stringify(CategoryRequestDto);
@@ -25,4 +25,4 @@ p.addEventListener("click", function() {
     postRequestAjax("/api/categos", function(e) {
         console.log(e);
     }, jsonObj);
-})
+});

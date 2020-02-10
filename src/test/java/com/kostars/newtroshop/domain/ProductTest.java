@@ -61,4 +61,22 @@ public class ProductTest extends NewtroshopApplicationTests {
                     productRepository.deleteById(productEntity.getProductId());
                 });
     }
+
+    @Test
+    public void 상품확인 () {
+
+        productRepository.findById(3l)
+                .ifPresent(product -> {
+                    System.out.println(product);
+                    System.out.println(product.getCategories());
+                });
+    }
+
+    @Test
+    public void 다대다확인() {
+        List<Product> a = productRepository.findAll();
+        a.forEach(item -> {
+            System.out.println(item);
+        });
+    }
 }

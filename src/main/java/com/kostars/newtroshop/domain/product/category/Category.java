@@ -1,20 +1,18 @@
 package com.kostars.newtroshop.domain.product.category;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.kostars.newtroshop.domain.product.Product;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Builder
+@ToString(exclude = {"products"})
 public class Category {
 
     @Id
@@ -22,4 +20,7 @@ public class Category {
     private Long categoryId;
 
     private String categoryName;
+
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "categories")
+    private List<Product> products;
 }

@@ -1,25 +1,23 @@
 package com.kostars.newtroshop.domain.product;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.hibernate.annotations.ColumnDefault;
+import com.kostars.newtroshop.domain.product.category.Category;
+import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
+import org.springframework.data.annotation.CreatedDate;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Entity
 @DynamicInsert
+@Builder
+@ToString(exclude = {"categories"})
 public class Product {
 
     @Id
@@ -34,10 +32,16 @@ public class Product {
 
     private String productColor;
 
+    @CreatedDate
     private LocalDateTime createdAt;
 
     private LocalDateTime updatedAt;
 
     private int productStock;
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "product_category", joinColumns = @JoinColumn(name = "productId")
+    , inverseJoinColumns = @JoinColumn(name = "categoryId"))
+    private List<Category> categories;
 
 }

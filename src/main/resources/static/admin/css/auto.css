@@ -1,0 +1,86 @@
+/* 자동완성 태그 박스 */
+#autoD {
+  background-color: gray;
+  width: 173px;
+  max-height: 200px;
+  position: fixed;
+  border-radius: 4px;
+  overflow-x: initial;
+  overflow-y: scroll;
+}
+
+/* 이 아래로 쭉 스크롤바 관련 */
+#autoD::-webkit-scrollbar-track {
+  background-color: #5d5d5d;
+}
+#autoD::-webkit-scrollbar-thumb {
+  background: #303030;
+}
+#autoD::-webkit-scrollbar {
+  width: 8px;
+}
+#autoD::-webkit-scrollbar-thumb:hover {
+  background: #404040;
+}
+#autoD::-webkit-scrollbar-thumb:active {
+  background: #808080;
+}
+#autoD::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* 자동완성된 태그 리스트들 */
+
+.btnList {
+  width: 100px;
+}
+
+/* 자동완성이 포커싱 되어있는 상태 */
+
+.btnList:focus {
+  background-color: black;
+}
+
+#tests {
+  background-color: aqua;
+}
+
+/* 모달창 */
+
+#modal {
+  display: none;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+#modal h2 {
+  margin: 0;
+}
+
+#modal button {
+  display: inline-block;
+  width: 100px;
+  margin-left: calc(100% - 100px - 10px);
+}
+
+#modal .modal_content {
+  width: 300px;
+  margin: 100px auto;
+  padding: 20px 10px;
+  background: #fff;
+  border: 2px solid #666;
+}
+
+#modal .modal_layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+/* todo focus 된 btn 과 그 아이들 등등 하여튼 자동완성 친구들 꾸며주기 */
