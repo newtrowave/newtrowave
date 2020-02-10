@@ -16,8 +16,11 @@ public class CategoryController implements CrudInterface<CategoryRequestDto, Cat
     private CategoryService categoryService;
 
     @Override
-    @PostMapping("")
-    public Header<CategoryResponseDto> create(Header<CategoryRequestDto> request) {
+    @PostMapping(value = "", consumes = "application/json")
+    public Header<CategoryResponseDto> create(@RequestBody Header<CategoryRequestDto> request) {
+
+        System.out.println(request);
+        System.out.println(request.getData());
 
         return categoryService.create(request);
     }

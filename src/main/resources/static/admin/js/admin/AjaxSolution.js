@@ -1,6 +1,6 @@
 let xhr;
 
-export function postRequestAjax(url, func) {
+export function postRequestAjax(url, func, data) {
     xhr = new XMLHttpRequest();
 
     xhr.open("POST", url);
@@ -12,5 +12,8 @@ export function postRequestAjax(url, func) {
         console.log(xhr.errorClass);
     }
 
-    xhr.send();
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+    xhr.send(data);
+
 }

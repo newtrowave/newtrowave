@@ -18,7 +18,7 @@ public class ProductController implements CrudInterface<ProductRequestDto, Produ
     private ProductService productService;
 
     @Override
-    @PostMapping("")
+    @PostMapping(value = "")
     public Header<ProductResponseDto> create(Header<ProductRequestDto> request) {
 
         return productService.create(request);
