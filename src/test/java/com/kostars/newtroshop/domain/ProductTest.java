@@ -6,6 +6,7 @@ import com.kostars.newtroshop.domain.product.ProductRepository;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.transaction.Transactional;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -63,9 +64,10 @@ public class ProductTest extends NewtroshopApplicationTests {
     }
 
     @Test
+    @Transactional
     public void 상품확인 () {
 
-        productRepository.findById(3l)
+        productRepository.findById(5l)
                 .ifPresent(product -> {
                     System.out.println(product);
                     System.out.println(product.getCategories());

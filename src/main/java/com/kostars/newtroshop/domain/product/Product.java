@@ -40,7 +40,7 @@ public class Product {
     private int productStock;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "product_category", joinColumns = @JoinColumn(name = "productId")
+    @JoinTable(name = "productCategory", joinColumns = @JoinColumn(name = "productId")
     , inverseJoinColumns = @JoinColumn(name = "categoryId"))
     private List<Category> categories;
 
