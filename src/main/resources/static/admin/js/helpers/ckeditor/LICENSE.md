@@ -59,7 +59,7 @@ Trademarks
 ----------
 
 CKEditor is a trademark of CKSource - Frederico Knabben. All other brand
-and product names are trademarks, registered trademarks or service
+and productEntity names are trademarks, registered trademarks or service
 marks of their respective holders.
 
 ---
@@ -1071,7 +1071,7 @@ Version 1.1
      3.7. Larger Works.
      You may create a Larger Work by combining Covered Code with other code
      not governed by the terms of this License and distribute the Larger
-     Work as a single product. In such a case, You must make sure the
+     Work as a single productEntity. In such a case, You must make sure the
      requirements of this License are fulfilled for the Covered Code.
 
 4. Inability to Comply Due to Statute or Regulation.
