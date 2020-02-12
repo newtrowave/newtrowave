@@ -1,12 +1,11 @@
 package com.kostars.newtroshop.web.dto.response;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.kostars.newtroshop.domain.product.Product;
 import com.kostars.newtroshop.domain.product.category.Category;
 import com.kostars.newtroshop.domain.product.category.keyword.Keyword;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -16,6 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@ToString(exclude = {"products", "categories", "keywords"})
 public class ProductResponseDto {
 
     private Long productId;
@@ -34,7 +34,7 @@ public class ProductResponseDto {
 
     private int productStock;
 
-    private List<Product> product;
+    private List<Product> products;
 
     private List<Category> categories;
 

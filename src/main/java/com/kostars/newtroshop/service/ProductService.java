@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -39,7 +41,19 @@ public class ProductService implements CrudInterface<ProductRequestDto, ProductR
 
     @Override
     public Header<ProductResponseDto> read(Long id) {
-        return null;
+
+        return productRepository.findById(id)
+                .map(this::response)
+                .orElseGet(() -> Header.ERROR("NO DATA"));
+
+    }
+
+    public Header<ProductResponseDto> readAll() {
+        List<Product> products = productRepository.findAll();
+
+        System.out.println("PRODUCT SERVICE #54 : " + products);
+
+        return responseList(products);
     }
 
     @Override
@@ -62,6 +76,14 @@ public class ProductService implements CrudInterface<ProductRequestDto, ProductR
                 .productContent(product.getProductContent())
                 .createdAt(product.getCreatedAt())
                 .productStock(product.getProductStock())
+                .build();
+
+        return Header.OK(body);
+    }
+
+    private Header<ProductResponseDto> responseList(List<Product> list) {
+        ProductResponseDto body = ProductResponseDto.builder()
+                .products(list)
                 .build();
 
         return Header.OK(body);

@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -29,5 +30,7 @@ public class ProductRequestDto {
     private LocalDateTime updatedAt;
 
     private int productStock;
+
+    private List<KeywordRequestDto> keywords;
 
 }

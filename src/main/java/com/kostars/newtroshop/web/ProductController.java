@@ -6,9 +6,7 @@ import com.kostars.newtroshop.service.ProductService;
 import com.kostars.newtroshop.web.dto.request.ProductRequestDto;
 import com.kostars.newtroshop.web.dto.response.ProductResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/product")
@@ -18,15 +16,26 @@ public class ProductController implements CrudInterface<ProductRequestDto, Produ
     private ProductService productService;
 
     @Override
-    @PostMapping(value = "")
-    public Header<ProductResponseDto> create(Header<ProductRequestDto> request) {
+    @PostMapping(value = "", consumes = "application/json;charset=UTF-8")
+    public Header<ProductResponseDto> create(@RequestBody Header<ProductRequestDto> request) {
 
-        return productService.create(request);
+        System.out.println("request : " + request);
+        System.out.println("data : " + request.getData());
+
+        return new Header<ProductResponseDto>();
     }
 
     @Override
-    public Header<ProductResponseDto> read(Long id) {
-        return null;
+    @GetMapping(value = "{id}")
+    public Header<ProductResponseDto> read(@PathVariable Long id) {
+        return productService.read(id);
+    }
+
+    @GetMapping(value = "")
+    public Header<ProductResponseDto> readAll() {
+        Header<ProductResponseDto> a = productService.readAll();
+        System.out.println(a);
+        return a;
     }
 
     @Override

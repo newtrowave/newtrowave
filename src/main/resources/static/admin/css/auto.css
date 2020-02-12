@@ -1,5 +1,5 @@
 /* 자동완성 태그 박스 */
-#autoD {
+#autoCompleteForm-group {
   background-color: gray;
   width: 173px;
   max-height: 200px;
@@ -10,34 +10,34 @@
 }
 
 /* 이 아래로 쭉 스크롤바 관련 */
-#autoD::-webkit-scrollbar-track {
+#autoCompleteForm-group::-webkit-scrollbar-track {
   background-color: #5d5d5d;
 }
-#autoD::-webkit-scrollbar-thumb {
+#autoCompleteForm-group::-webkit-scrollbar-thumb {
   background: #303030;
 }
-#autoD::-webkit-scrollbar {
+#autoCompleteForm-group::-webkit-scrollbar {
   width: 8px;
 }
-#autoD::-webkit-scrollbar-thumb:hover {
+#autoCompleteForm-group::-webkit-scrollbar-thumb:hover {
   background: #404040;
 }
-#autoD::-webkit-scrollbar-thumb:active {
+#autoCompleteForm-group::-webkit-scrollbar-thumb:active {
   background: #808080;
 }
-#autoD::-webkit-scrollbar-button {
+#autoCompleteForm-group::-webkit-scrollbar-button {
   display: none;
 }
 
 /* 자동완성된 태그 리스트들 */
 
-.btnList {
+.autoCompleteBlocks {
   width: 100px;
 }
 
 /* 자동완성이 포커싱 되어있는 상태 */
 
-.btnList:focus {
+.autoCompleteBlocks:focus {
   background-color: black;
 }
 
@@ -47,7 +47,7 @@
 
 /* 모달창 */
 
-#modal {
+#autoCompleteModal {
   display: none;
   position: relative;
   width: 100%;
@@ -55,17 +55,17 @@
   z-index: 1;
 }
 
-#modal h2 {
+#autoCompleteModal h2 {
   margin: 0;
 }
 
-#modal button {
+#autoCompleteModal button {
   display: inline-block;
   width: 100px;
   margin-left: calc(100% - 100px - 10px);
 }
 
-#modal .modal_content {
+#autoCompleteModal .autoCompleteModal_content {
   width: 300px;
   margin: 100px auto;
   padding: 20px 10px;
@@ -73,7 +73,7 @@
   border: 2px solid #666;
 }
 
-#modal .modal_layer {
+#autoCompleteModal .autoCompleteModal_layer {
   position: fixed;
   top: 0;
   left: 0;

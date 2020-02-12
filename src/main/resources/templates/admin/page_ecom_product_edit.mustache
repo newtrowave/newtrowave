@@ -39,13 +39,13 @@
                 <!-- END General Data Title -->
 
                 <!-- General Data Content -->
-                <form method="post" class="form-horizontal form-bordered" onsubmit="return false;">
+                <form method="post" class="form-horizontal form-bordered" id="productsForm" onsubmit="return false;">
 
-                    <input type="hidden" id="productId" name="productId" class="form-control" value="">
+                    <input type="hidden" id="productId" name="product_id" class="form-control" value="">
                     <div class="form-group">
                         <label class="col-md-3 control-label" for="productName">Name</label>
                         <div class="col-md-9">
-                            <input type="text" id="productName" name="productName" class="form-control"
+                            <input type="text" id="productName" name="product_name" class="form-control"
                                    placeholder="Enter productEntity name..">
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                         <div class="col-md-9">
                             <!-- CKEditor, you just need to include the plugin (see at the bottom of this page) and add the class 'ckeditor' to your textarea -->
                             <!-- More info can be found at http://ckeditor.com -->
-                            <textarea id="productContent" name="productContent" class="ckeditor"></textarea>
+                            <textarea id="productContent" name="product_content" class="ckeditor"></textarea>
                         </div>
                     </div>
                     <div class="form-group">
@@ -68,7 +68,7 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label" for="productCategory">Category</label>
                         <div class="col-md-8">
-                            <input type="text" id="productCategory" name="productCategory" class="form-control"
+                            <input type="text" id="productCategory" name="product_category" class="form-control"
                                    placeholder="Enter Category"  autocomplete="off">
                         </div>
                     </div>
@@ -77,7 +77,7 @@
                         <div class="col-md-8">
                             <div class="input-group">
                                 <div class="input-group-addon"><i class="fa fa-usd"></i></div>
-                                <input type="text" id="productPrice" name="productPrice" class="form-control"
+                                <input type="text" id="productPrice" name="product_price" class="form-control"
                                        placeholder="0,00" autocomplete="off">
                             </div>
                         </div>
@@ -86,7 +86,7 @@
                         <label class="col-md-3 control-label" for="productStock">Stock</label>
                         <div class="col-md-8">
                             <div class="input-group">
-                                <input type="text" id="productStock" name="productStock" class="form-control"
+                                <input type="text" id="productStock" name="product_stock" class="form-control"
                                        placeholder="0" autocomplete="off">
                             </div>
                         </div>
@@ -113,6 +113,34 @@
                             </label>
                         </div>
                     </div>
+                    <div id="keywordsListForm-group"></div>
+                    <input type="hidden" name="categorId">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="keyword">Keywords</label>
+                        <div class="col-md-9">
+                            <input type="text" id="keyword" name="categoryName"
+                                   class="form-control" placeholder="keywords..." autocomplete="off">
+                            <div id="autoCompleteForm-group"></div>
+                        </div>
+                    </div>
+
+                    <!-- 추가를 위한 모달창 -->
+                    <div id="autoCompleteModal">
+                        <div class="autoCompleteModal_content" id="autoCompleteModal_content"></div>
+
+                        <div class="autoCompleteModal_layer"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="keyword_description">Meta
+                            Description</label>
+                        <div class="col-md-9">
+                            <textarea id="keyword_description" name="keyword_description"
+                                      class="form-control" rows="6" placeholder="Enter keyword description.."></textarea>
+                            <div class="help-block">115 Characters Max</div>
+                        </div>
+                    </div>
+
                     <div class="form-group form-actions">
                         <div class="col-md-9 col-md-offset-3">
                             <button type="button" id="productSaveBtn" class="btn btn-sm btn-primary"><i
@@ -128,39 +156,6 @@
             <!-- END General Data Block -->
         </div>
         <div class="col-lg-6">
-            <!-- Meta Data Block -->
-            <div class="block">
-                <!-- Meta Data Title -->
-                <div class="block-title">
-                    <h2><i class="fa fa-google"></i> <strong>Meta</strong> Data</h2>
-                </div>
-                <!-- END Meta Data Title -->
-
-                <!-- Meta Data Content -->
-                <form id="form_product_keywords" method="post" class="form-horizontal form-bordered"
-                      onsubmit="return false;">
-                    <input type="hidden" name="categorId">
-                    <div class="form-group">
-                        <label class="col-md-3 control-label" for="keyword">Keywords</label>
-                        <div class="col-md-9">
-                            <input type="text" id="keyword" name="categoryName"
-                                   class="form-control" placeholder="keywords..." autocomplete="off">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                    <label class="col-md-3 control-label" for="keyword_description">Meta
-                        Description</label>
-                    <div class="col-md-9">
-                            <textarea id="keyword_description" name="keyword_description"
-                                      class="form-control" rows="6" placeholder="Enter keyword description.."></textarea>
-                        <div class="help-block">115 Characters Max</div>
-                    </div>
-                </div>
-                </form>
-                <!-- END Meta Data Content -->
-            </div>
-            <!-- END Meta Data Block -->
-
             <!-- Product Images Block -->
             <div class="block">
                 <!-- Product Images Title -->
@@ -240,5 +235,7 @@
     <!-- END Product Edit Content -->
 </div>
 <!-- END Page Content -->
-<script type="module" src="/admin/js/admin/product_edit.js"></script>
+<link rel="stylesheet" href="/admin/css/auto.css">
+<script type="module" src="/admin/js/admin/product.js"></script>
+<script type="module" src="/admin/js/admin/autoComplete.js"></script>
 {{>admin/layout/footer}}

@@ -1,17 +1,20 @@
 import {postRequestAjax} from './AjaxSolution.js';
 
-let p = document.getElementById("productSaveBtn");
+let productSaveBtn = document.getElementById("productSaveBtn");
 
-p.addEventListener("click", function() {
+productSaveBtn.addEventListener("click", function () {
+    import * as Obj from './Objects.js';
     var form = new FormData(document.getElementById("form_product_keywords"));
 
+    Obj.header.data.category_id = ""
+
     let CategoryRequestDto = {
-        "transaction_time" : "",
-        "result_code" : "",
-        "description" : "" ,
-        "data" : {
-            "category_id" : "",
-            "category_name" : ""
+        "transaction_time": "",
+        "result_code": "",
+        "description": "",
+        "data": {
+            "category_id": "",
+            "category_name": ""
         }
     };
 
@@ -22,7 +25,7 @@ p.addEventListener("click", function() {
 
     let jsonObj = JSON.stringify(CategoryRequestDto);
 
-    postRequestAjax("/api/categos", function(e) {
+    postRequestAjax("/api/categos", function (e) {
         console.log(e);
     }, jsonObj);
 });

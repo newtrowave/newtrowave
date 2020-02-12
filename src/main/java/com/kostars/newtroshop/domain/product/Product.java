@@ -1,5 +1,8 @@
 package com.kostars.newtroshop.domain.product;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.kostars.newtroshop.domain.product.category.Category;
 import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
@@ -42,6 +45,7 @@ public class Product {
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "productCategory", joinColumns = @JoinColumn(name = "productId")
     , inverseJoinColumns = @JoinColumn(name = "categoryId"))
+    @JsonIgnore
     private List<Category> categories;
 
 }

@@ -1,75 +1,15 @@
-const a = document.getElementById("autoC"); // input 태그 ID
-const b = document.getElementById("autoD"); // 자동완성 div 태그 ID
+const a = document.getElementById("keyword"); // input 태그 ID
+const b = document.getElementById("autoCompleteForm-group"); // 자동완성 div 태그 ID
 
-const list = [
-  {
-    keyword_id: 1,
-    keyword_name: "커널형",
-    keyword_description: null,
-    keyword_image: null
-  },
-  {
-    keyword_id: 2,
-    keyword_name: "오픈형",
-    keyword_description: null,
-    keyword_image: null
-  },
-  {
-    keyword_id: 3,
-    keyword_name: "유선",
-    keyword_description: null,
-    keyword_image: null
-  },
-  {
-    keyword_id: 4,
-    keyword_name: "무선",
-    keyword_description: null,
-    keyword_image: null
-  },
-  {
-    keyword_id: 5,
-    keyword_name: "유무선겸용",
-    keyword_description: null,
-    keyword_image: null
-  },
-  {
-    keyword_id: 6,
-    keyword_name: "코드리스",
-    keyword_description: null,
-    keyword_image: null
-  },
-  {
-    keyword_id: 7,
-    keyword_name: "넥밴드형",
-    keyword_description: null,
-    keyword_image: null
-  },
-  {
-    keyword_id: 8,
-    keyword_name: "백헤드형",
-    keyword_description: null,
-    keyword_image: null
-  },
-  {
-    keyword_id: 9,
-    keyword_name: "귀걸이형",
-    keyword_description: null,
-    keyword_image: null
-  },
-  {
-    keyword_id: 10,
-    keyword_name: "액티브노이즈캔슬링",
-    keyword_description: null,
-    keyword_image: null
-  }
-];
+function setArray(result) {
+  return result;
+}
+
 a.addEventListener("keydown", function(e) {
   let check = false;
 
   check =
-    e.keyCode != 37 && e.keyCode != 38 && e.keyCode != 39 && e.keyCode != 40
-      ? true
-      : false;
+    e.keyCode !== 37 && e.keyCode != 38 && e.keyCode != 39 && e.keyCode != 40;
 
   /*
   
@@ -93,8 +33,24 @@ a.addEventListener("keydown", function(e) {
 
     if (check && av != "") {
       b.innerHTML = "";
-      const result = list.filter(word => word.keyword_name.includes(av));
-      let len = result.length;
+      let len;
+      let result;
+
+      let s = fetch("/api/keyword/list/"+av, {
+        method : 'GET'
+      })
+          .then(res => res.json())
+          .then(res => {
+            result = res.data;
+            console.log(res.data);
+            if(res.ok) {
+              return result;
+            }
+          })
+
+      console.log(typeof s);
+      console.log(s);
+
       if (len > 0) {
         for (let i = 0; i < len; i++) {
           let t = document.createElement("button");
@@ -103,7 +59,7 @@ a.addEventListener("keydown", function(e) {
           t.setAttribute("key_id", result[i].keyword_id);
 
           b.append(t);
-          
+
         }
       } else {
         b.innerHTML = "";
