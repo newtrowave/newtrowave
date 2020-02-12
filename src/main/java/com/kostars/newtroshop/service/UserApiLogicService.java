@@ -39,6 +39,7 @@ public class UserApiLogicService implements CrudInterface<UserApiRequest, UserAp
 
         //3. 생성된 데이터 -> userApiResponse return
         return response(newUser);
+
     }
 
     @Override

@@ -1,8 +1,10 @@
 package com.kostars.newtroshop.domain.user;
 
+import com.kostars.newtroshop.domain.address.Address;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -10,12 +12,14 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 @Accessors(chain = true)
+@ToString(exclude = {"addressList"})
 public class User {
 
     @Id
@@ -44,8 +48,22 @@ public class User {
     @LastModifiedDate
     private LocalDateTime updatedAt;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private List<Address> addressList;
+
     @Builder
     public User(String name, String email, String picture, Role role, String phoneNumber, LocalDateTime registeredAt) {
+        this.name = name;
+        this.email = email;
+        this.picture = picture;
+        this.role = role;
+        this.phoneNumber = phoneNumber;
+        this.registeredAt = registeredAt;
+    }
+
+    @Builder
+    public User(Long id,String name, String email, String picture, Role role, String phoneNumber, LocalDateTime registeredAt) {
+        this.id = id;
         this.name = name;
         this.email = email;
         this.picture = picture;
