@@ -9,6 +9,7 @@ import net.minidev.json.annotate.JsonIgnore;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Data
 @AllArgsConstructor
@@ -27,7 +28,9 @@ public class CartItems {
     @Column
     private Integer cartQuantity;
 
-    private Long quantity;
+    private BigDecimal unitPrice;
+
+    private BigDecimal subtotal;
 
     @ManyToOne
     @JoinColumn(name = "cartId")
@@ -37,4 +40,8 @@ public class CartItems {
     @ManyToOne
     @JoinColumn(name = "productId")
     private Product product;
+
+    public BigDecimal getSubtotal() {
+        return product.getProductPrice().multiply(new BigDecimal(cartQuantity));
+    }
 }

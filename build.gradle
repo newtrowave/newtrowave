@@ -46,4 +46,7 @@ dependencies {
     testCompile("org.springframework.security:spring-security-test")
     testCompile group: 'junit', name: 'junit', version: '4.13'
 
+    test {
+        useJUnitPlatform()
+    }
 }

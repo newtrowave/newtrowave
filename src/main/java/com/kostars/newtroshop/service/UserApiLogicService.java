@@ -2,13 +2,17 @@ package com.kostars.newtroshop.service;
 
 import com.kostars.newtroshop.domain.CrudInterface;
 import com.kostars.newtroshop.domain.Header;
+import com.kostars.newtroshop.domain.cart.ShoppingCart;
 import com.kostars.newtroshop.domain.user.User;
 import com.kostars.newtroshop.domain.user.UserRepository;
+import com.kostars.newtroshop.service.exception.UserFoundException;
+import com.kostars.newtroshop.service.exception.UserNotFoundException;
 import com.kostars.newtroshop.web.dto.request.UserApiRequest;
 import com.kostars.newtroshop.web.dto.response.UserApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
@@ -118,4 +122,26 @@ public class UserApiLogicService implements CrudInterface<UserApiRequest, UserAp
         // Header + data return
         return Header.OK(userApiResponse);
     }
+
+    public User findById(Long id) {
+        verifyIfNotExistsUserWithGivenId(id);
+        return userRepository.getOne(id);
+    }
+    private void verifyIfNotExistsUserWithGivenId(Long id) {
+        Optional<User> foundUser = userRepository.findById(id);
+        if (foundUser.isEmpty()) {
+            throw new UserNotFoundException();
+        }
+    }
+
+    private void verifyIfUserWithGivenEmailExists(User userAccount) {
+        Optional<User> foundUser = userRepository.findByEmail(userAccount.getEmail());
+        if (foundUser.isPresent() && (userAccount.isNew() || isUpdatingToADifferentUser(userAccount, foundUser))) {
+            throw new UserFoundException();
+        }
+    }
+    private boolean isUpdatingToADifferentUser(User userAccount, Optional<User> foundUser) {
+        return userAccount.exist() && !userAccount.equals(foundUser);
+    }
+
 }
