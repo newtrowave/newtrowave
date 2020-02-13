@@ -34,6 +34,8 @@ public class ProductResponseDto {
 
     private int productStock;
 
+    private boolean productPublished;
+
     private List<Product> products;
 
     private List<Category> categories;

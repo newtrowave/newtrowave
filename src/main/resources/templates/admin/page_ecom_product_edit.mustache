@@ -166,8 +166,9 @@
 
                 <!-- Product Images Content -->
                 <div class="block-section">
-                    <!-- Dropzone.js, You can check out https://github.com/enyo/dropzone/wiki for usage examples -->
-                    <form action="page_ecom_product_edit.mustache" class="dropzone"></form>
+                    <!-- 파일을 드래그 앤 드롭 할 수 있는 곳 -->
+                    <script type="javascript" src="/admin/js/admin/imageDrop.js"></script>
+                    <form action="/api/product/files" name="file_url" id="my-awesome-dropzone" class="" enctype="multipart/form-data"></form>
                 </div>
                 <table class="table table-bordered table-striped table-vcenter">
                     <tbody>
@@ -178,6 +179,7 @@
                                      class="img-responsive center-block" style="max-width: 110px;">
                             </a>
                         </td>
+
                         <td class="text-center">
                             <label class="switch switch-primary">
                                 <input type="checkbox" checked><span></span>
