@@ -134,9 +134,9 @@ public class UserApiLogicService implements CrudInterface<UserApiRequest, UserAp
         }
     }
 
-    private void verifyIfUserWithGivenEmailExists(User userAccount) {
-        Optional<User> foundUser = userRepository.findByEmail(userAccount.getEmail());
-        if (foundUser.isPresent() && (userAccount.isNew() || isUpdatingToADifferentUser(userAccount, foundUser))) {
+    private void verifyIfUserWithGivenEmailExists(User user) {
+        Optional<User> foundUser = userRepository.findByEmail(user.getEmail());
+        if (foundUser.isPresent() && (user.isNew() || isUpdatingToADifferentUser(user, foundUser))) {
             throw new UserFoundException();
         }
     }

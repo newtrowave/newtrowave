@@ -1,5 +1,8 @@
 package com.kostars.newtroshop.domain.cart;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.kostars.newtroshop.domain.cartItems.CartItems;
 import com.kostars.newtroshop.domain.user.User;
 import lombok.*;
@@ -12,27 +15,29 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
-@EntityListeners(AuditingEntityListener.class)
-@ToString(exclude = {"user", "cartItemsList"})
 @Builder
-@Accessors(chain = true)
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString(exclude = {"user", "cartItemsList"})
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class ShoppingCart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
     private Long cartId;
 
+    @Column
     private BigDecimal totalPrice = BigDecimal.ZERO;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "userId")
-    @JsonIgnore
+    @JsonBackReference(value="user")
     private User user;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "shoppingCart")
+    @JsonIgnore
     private List<CartItems> cartItemsList;
 
     public BigDecimal totalPrice() {

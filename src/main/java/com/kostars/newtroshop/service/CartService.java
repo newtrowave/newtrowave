@@ -1,6 +1,7 @@
 package com.kostars.newtroshop.service;
 
 import com.kostars.newtroshop.domain.CrudInterface;
+import com.kostars.newtroshop.domain.Header;
 import com.kostars.newtroshop.domain.cart.ShoppingCart;
 import com.kostars.newtroshop.domain.cart.ShoppingCartRepository;
 import com.kostars.newtroshop.domain.cartItems.CartItems;
@@ -22,7 +23,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CartService  {
+public class CartService {
 
     @Autowired
     private ShoppingCartRepository cartRepository;
@@ -35,19 +36,14 @@ public class CartService  {
     @Autowired
     private ProductService productService;
 
-    @Transactional
-    public ShoppingCart createCart(){
-        return save(new ShoppingCart());
-    }
-
-
-    public ShoppingCart findCartByUser(Long  userId) {
+    public ShoppingCart findCartByUser(Long userId) {
         return cartRepository.findByUserId(userId);
     }
+
     public ShoppingCart save(ShoppingCart cart) {
         cart.setUser(userService.findById(cart.getUser().getId()));
         cart = cartRepository.save(cart);
-        for (CartItems item: cart.getCartItemsList()) {
+        for (CartItems item : cart.getCartItemsList()) {
             item.setProduct(productService.findById(item.getProduct().getProductId()));
             item.setUnitPrice(item.getProduct().getProductPrice());
             item.setSubtotal(item.getUnitPrice().multiply(new BigDecimal(item.getCartQuantity())));
@@ -57,6 +53,7 @@ public class CartService  {
         updateCart(cart);
         return cart;
     }
+
     public ShoppingCart updateCart(ShoppingCart cart) {
         List<CartItems> cartItems = cartItemRepository.findByShoppingCart(cart);
         BigDecimal cartTotal = cartItems.stream()
@@ -67,5 +64,7 @@ public class CartService  {
         return cartRepository.save(cart);
     }
 
-
+    public void deleteById(Long id) {
+        cartRepository.deleteById(id);
+    }
 }

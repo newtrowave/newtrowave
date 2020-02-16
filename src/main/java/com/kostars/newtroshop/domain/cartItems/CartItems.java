@@ -1,5 +1,7 @@
 package com.kostars.newtroshop.domain.cartItems;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.kostars.newtroshop.domain.cart.ShoppingCart;
 import com.kostars.newtroshop.domain.product.Product;
 import com.kostars.newtroshop.domain.user.User;
@@ -9,36 +11,37 @@ import net.minidev.json.annotate.JsonIgnore;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
-@EntityListeners(AuditingEntityListener.class)
-@ToString(exclude = {"product"})
-@Builder
-@Accessors(chain = true)
-public class CartItems {
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@ToString(exclude = {"product", "shoppingCart"})
+public class CartItems implements Serializable {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
     private Long cartItemsId;
 
-    @Column
     private Integer cartQuantity;
 
+    @Column
     private BigDecimal unitPrice;
 
     private BigDecimal subtotal;
 
     @ManyToOne
-    @JoinColumn(name = "cartId")
-    @JsonIgnore
+    @JoinColumn(name = "shoppingCartCartId")
+    @JsonBackReference(value = "shoppingCart")
     private ShoppingCart shoppingCart;
 
     @ManyToOne
-    @JoinColumn(name = "productId")
+    @JoinColumn(name = "productProductId")
+    @JsonBackReference(value = "product")
     private Product product;
 
     public BigDecimal getSubtotal() {

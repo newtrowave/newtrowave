@@ -1,8 +1,6 @@
 package com.kostars.newtroshop.domain.product;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.*;
 import com.kostars.newtroshop.domain.product.category.Category;
 import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
@@ -36,8 +34,10 @@ public class Product {
     private String productColor;
 
     @CreatedDate
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createdAt;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime updatedAt;
 
     private int productStock;
