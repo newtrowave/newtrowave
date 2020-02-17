@@ -6,6 +6,7 @@ import com.kostars.newtroshop.service.ProductService;
 import com.kostars.newtroshop.web.dto.request.ProductRequestDto;
 import com.kostars.newtroshop.web.dto.response.ProductResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -31,6 +32,8 @@ public class ProductController implements CrudInterface<ProductRequestDto, Produ
 
     @PostMapping("files")
     public Header<ProductResponseDto> upload(@RequestPart List<MultipartFile> files) throws Exception{
+
+        System.out.println("#35 controller : " + files);
 
         productService.upload(files);
         return null;

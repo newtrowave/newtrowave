@@ -165,10 +165,12 @@
                 <!-- END Product Images Title -->
 
                 <!-- Product Images Content -->
+                <link rel="stylesheet" href="/admin/css/dragAndDrop.css">
                 <div class="block-section">
+                    <form enctype="multipart/form-data" id="fileImagesForm">
+                    </form>
                     <!-- 파일을 드래그 앤 드롭 할 수 있는 곳 -->
-                    <script type="javascript" src="/admin/js/admin/imageDrop.js"></script>
-                    <form action="/api/product/files" name="file_url" id="my-awesome-dropzone" class="" enctype="multipart/form-data"></form>
+                <script src="/admin/js/admin/imageDrop.js"></script>
                 </div>
                 <table class="table table-bordered table-striped table-vcenter">
                     <tbody>

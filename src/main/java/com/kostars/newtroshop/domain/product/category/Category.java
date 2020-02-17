@@ -27,4 +27,5 @@ public class Category {
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "categories")
     @JsonIgnore
     private List<Product> products;
+
 }
