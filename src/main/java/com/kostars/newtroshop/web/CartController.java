@@ -34,11 +34,11 @@ public class CartController {
         return cartService.findCartByUser(userId);
     }
 
-    @PutMapping("/update")
+    @PutMapping
     public ShoppingCart updateCart(@RequestBody ShoppingCart cart) {return cartService.updateCart(cart); }
 
 
-    @DeleteMapping("/deleteCart/{id}")
+    @DeleteMapping("/{id}")
     public void deleteCart(@PathVariable("id") Long id)
     {
         cartService.deleteById(id);
