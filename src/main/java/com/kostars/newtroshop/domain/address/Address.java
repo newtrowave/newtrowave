@@ -10,6 +10,7 @@ import net.minidev.json.annotate.JsonIgnore;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Data
 @AllArgsConstructor
@@ -19,7 +20,7 @@ import javax.persistence.*;
 @Accessors(chain = true)
 @ToString(exclude = {"user"})
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Address {
+public class Address implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

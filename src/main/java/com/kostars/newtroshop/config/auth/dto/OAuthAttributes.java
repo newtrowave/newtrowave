@@ -1,10 +1,12 @@
 package com.kostars.newtroshop.config.auth.dto;
 
+import com.kostars.newtroshop.domain.address.Address;
 import com.kostars.newtroshop.domain.user.Role;
 import com.kostars.newtroshop.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
 
+import java.util.List;
 import java.util.Map;
 
 @Getter
@@ -15,15 +17,17 @@ public class OAuthAttributes {
     private String email;
     private String picture;
     private String phoneNumber;
+    private List<Address> addressList;
 
     @Builder
-    public OAuthAttributes(Map<String, Object> attributes, String nameAttributeKey, String name, String email, String picture, String phoneNumber) {
+    public OAuthAttributes(Map<String, Object> attributes, String nameAttributeKey, String name, String email, String picture, String phoneNumber, List<Address> addressList) {
         this.attributes = attributes;
         this.nameAttributeKey = nameAttributeKey;
         this.name = name;
         this.email = email;
         this.picture = picture;
         this.phoneNumber = phoneNumber;
+        this.addressList = addressList;
     }
 
     public static OAuthAttributes of(String registrationId, String userNameAttributeName, Map<String, Object> attributes) {

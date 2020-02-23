@@ -2,6 +2,7 @@ package com.kostars.newtroshop.web;
 
 import com.kostars.newtroshop.config.auth.LoginUser;
 import com.kostars.newtroshop.config.auth.dto.SessionUser;
+import com.kostars.newtroshop.domain.address.Address;
 import com.kostars.newtroshop.domain.cart.ShoppingCart;
 import com.kostars.newtroshop.service.PostsService;
 import lombok.RequiredArgsConstructor;

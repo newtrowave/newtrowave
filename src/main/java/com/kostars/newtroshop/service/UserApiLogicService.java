@@ -144,4 +144,5 @@ public class UserApiLogicService implements CrudInterface<UserApiRequest, UserAp
         return userAccount.exist() && !userAccount.equals(foundUser);
     }
 
+
 }

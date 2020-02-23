@@ -24,7 +24,7 @@ import java.util.List;
 @Accessors(chain = true)
 @ToString(exclude = {"addressList"})
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class User{
+public class User implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
