@@ -1,6 +1,13 @@
 document.querySelector('.block-section').addEventListener("dragover", dragOver);
 document.querySelector('.block-section').addEventListener("drop", uploadFiles);
 
+import axios from '/templates/admin/page_ecom_product_edit.mustache';
+
+axios.get("/api/product/3").then(res => {
+    console.log(res.data);
+    console.log(res.data.data);
+});
+
 function dragOver(e) {
     e.stopPropagation();
     e.preventDefault();

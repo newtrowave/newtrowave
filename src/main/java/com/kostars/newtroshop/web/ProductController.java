@@ -42,6 +42,7 @@ public class ProductController implements CrudInterface<ProductRequestDto, Produ
     @Override
     @GetMapping(value = "{id}")
     public Header<ProductResponseDto> read(@PathVariable Long id) {
+        System.out.println("read!");
         return productService.read(id);
     }
 
