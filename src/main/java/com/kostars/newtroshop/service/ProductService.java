@@ -4,11 +4,13 @@ import com.kostars.newtroshop.domain.CrudInterface;
 import com.kostars.newtroshop.domain.Header;
 import com.kostars.newtroshop.domain.product.Product;
 import com.kostars.newtroshop.domain.product.ProductRepository;
+import com.kostars.newtroshop.service.exception.ProductNotFoundException;
 import com.kostars.newtroshop.web.dto.request.ProductRequestDto;
 import com.kostars.newtroshop.web.dto.response.ProductResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -87,5 +89,17 @@ public class ProductService implements CrudInterface<ProductRequestDto, ProductR
                 .build();
 
         return Header.OK(body);
+    }
+
+    public Product findById(Long id) {
+        verifyIfNotExist(id);
+        return productRepository.getOne(id);
+    }
+
+    private void verifyIfNotExist(Long id) {
+        Optional<Product> foundProduct = productRepository.findById(id);
+        if (!foundProduct.isPresent()) {
+            throw new ProductNotFoundException();
+        }
     }
 }
