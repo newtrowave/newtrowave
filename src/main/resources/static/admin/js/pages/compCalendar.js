@@ -114,7 +114,7 @@ var CompCalendar = function() {
                     },
                     {
                         title: 'Job Meeting',
-                        start: new Date(y, m, d, 16, 00),
+                        start: new Date(y, m, d, 16, 0),
                         allDay: false,
                         color: '#f39c12'
                     },

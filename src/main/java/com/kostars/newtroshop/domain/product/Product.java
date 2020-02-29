@@ -1,6 +1,6 @@
 package com.kostars.newtroshop.domain.product;
 
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.kostars.newtroshop.domain.product.category.Category;
 import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
@@ -9,7 +9,6 @@ import org.springframework.data.annotation.CreatedDate;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -18,7 +17,7 @@ import java.util.List;
 @Entity
 @DynamicInsert
 @Builder
-@ToString(exclude = {"categories"})
+@ToString(exclude = {"categories", "files"})
 public class Product {
 
     @Id
@@ -41,6 +40,12 @@ public class Product {
     private LocalDateTime updatedAt;
 
     private int productStock;
+
+    private boolean productPublished;
+
+    @OneToMany(mappedBy = "product")
+    @JsonIgnore
+    private List<Files> files;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "productCategory", joinColumns = @JoinColumn(name = "productId")

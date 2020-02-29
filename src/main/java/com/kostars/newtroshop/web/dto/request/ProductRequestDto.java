@@ -31,6 +31,8 @@ public class ProductRequestDto {
 
     private int productStock;
 
+    private boolean productPublished;
+
     private List<KeywordRequestDto> keywords;
 
 }
